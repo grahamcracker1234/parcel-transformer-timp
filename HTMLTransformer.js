@@ -4,11 +4,15 @@ module.exports = new Transformer({
 	async transform({ asset, options }) {
 		const html = await asset.getCode();
 		const regexp = /<template[^>]*data-timp-src=["'](.*)["'][^>]*>(?:<\/template>)?/igm;
-		console.log("Test");
-		console.log(regexp.exec(html));
 
+		const matches = html.matchAll(regexp);
+    
+		for (const match of matches) {
+			console.log(match);
+			console.log(match.index)
+		}
 
-		asset.setCode(code);
+		asset.setCode(html);
 		return [asset];
 	}
 });
