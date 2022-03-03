@@ -2,9 +2,10 @@ const { Transformer } = require("@parcel/plugin");
 
 module.exports = new Transformer({
 	async transform({ asset, options }) {
-		console.log(options.inputFS);
-		const code = await asset.getCode();
+		const html = await asset.getCode();
+		const regexp = /<template[^>]*data-timp-src=["'](.*)["'][^>]*>(?:<\/template>)?/igm;
 
+		console.log(regexp.exec(html));
 
 
 		asset.setCode(code);
