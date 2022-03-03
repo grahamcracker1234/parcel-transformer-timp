@@ -1,0 +1,17 @@
+{
+  "name": "parcel-transformer-timp",
+  "version": "1.0.0",
+  "description": "Parcel Transformer for TIMP",
+  "main": "src/HTMLTransformer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Graham Preston",
+  "license": "MIT",
+  "engine": {
+    "parcel": "^2.0.0"
+  },
+  "dependencies": {
+    "parcel": "^2.3.2"
+  }
+}
