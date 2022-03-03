@@ -16,10 +16,14 @@ module.exports = new Transformer({
 
 		matches = Array.from(matches).map(m => [m[0], m[1]]);
 		console.log(matches);
-		for (const [textToReplace, filePath] of matches) {
-			console.log(textToReplace, filePath)
-			const text = await outputFS.readFile(filePath, "utf-8");
-			console.log(text);
+		try {
+			for (const [textToReplace, filePath] of matches) {
+				console.log(textToReplace, filePath)
+				const text = await outputFS.readFile(filePath, "utf-8");
+				console.log(text);
+			}
+		} catch (error) {
+			console.log(error);
 		}
 
 		asset.setCode(html);
