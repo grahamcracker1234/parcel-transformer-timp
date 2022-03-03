@@ -10,7 +10,7 @@ module.exports = new Transformer({
 		let matches = html.matchAll(regexp);
 
 		matches = Array.from(matches).map(m => [m[0], m[1]]);
-		console.log(matches);
+		// console.log(matches);
 
 		// for (const match of matches) {
 		// 	console.log(match[0]);
@@ -20,7 +20,7 @@ module.exports = new Transformer({
 		// matches = Array.from(matches).map(m => [m[0], m[1]]);
 		// console.log(matches);
 		for (const [textToReplace, filePath] in matches) {
-			console.log(fs)
+			console.log(textToReplace, filePath)
 			const text = await fs.readFile(filePath, "utf-8");
 			console.log(text);
 		}
