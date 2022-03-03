@@ -4,6 +4,7 @@ module.exports = new Transformer({
 	async transform({ asset, options }) {
 		let html = await asset.getCode();
 		const fs = options.inputFS;
+		console.log(fs);
 		const regexp = /<template[^>]*data-timp-src=["'](.*)["'][^>]*>(?:<\/template>)?/igm;
 
 		// Each match has 0: `template element` and 1: `data-timp-src`
