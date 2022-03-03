@@ -6,7 +6,7 @@ const workerFarm = createWorkerFarm();
 const outputFS = new MemoryFS(workerFarm);
 
 module.exports = new Transformer({
-	async transform({ asset, options }) {
+	async transform({ asset, options, resolve }) {
 		let html = await asset.getCode();
 		const fs = options.inputFS;
 		const regexp = /<template[^>]*data-timp-src=["'](.*)["'][^>]*>(?:<\/template>)?/igm;
@@ -18,7 +18,9 @@ module.exports = new Transformer({
 		try {
 			for (const [textToReplace, filePath] of matches) {
 				console.log(textToReplace, filePath)
-				const text = await fs.readFile(filePath, "utf-8");
+				const resolvedPath = await resolve(options.projectRoot, filePath)
+				console.log(resolvedPath);
+				const text = await fs.readFile(resolvedPath, "utf-8");
 				console.log(text);
 			}
 		} catch (error) {
