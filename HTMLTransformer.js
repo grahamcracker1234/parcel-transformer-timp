@@ -8,8 +8,8 @@ module.exports = new Transformer({
 		const matches = html.matchAll(regexp);
     
 		for (const match of matches) {
-			console.log(match);
-			console.log(match.index)
+			console.log(match[0]);
+			console.log(match[1]);
 		}
 
 		asset.setCode(html);
