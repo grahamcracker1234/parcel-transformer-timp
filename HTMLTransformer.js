@@ -14,7 +14,7 @@ module.exports = new Transformer({
 			console.log(match[1]);
 		}
 		
-		matches = matches.map(m => [m[0], m[1]]);
+		matches = Array.from(matches).map(m => [m[0], m[1]]);
 		for (const [textToReplace, filePath] in matches) {
 			const file = await fs.readFile(filePath);
 			console.log(file, file.text());
