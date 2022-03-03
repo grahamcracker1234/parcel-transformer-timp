@@ -9,13 +9,16 @@ module.exports = new Transformer({
 		// Each match has 0: `template element` and 1: `data-timp-src`
 		let matches = html.matchAll(regexp);
 
-		for (const match of matches) {
-			console.log(match[0]);
-			console.log(match[1]);
-		}
-		
 		matches = Array.from(matches).map(m => [m[0], m[1]]);
 		console.log(matches);
+
+		// for (const match of matches) {
+		// 	console.log(match[0]);
+		// 	console.log(match[1]);
+		// }
+		
+		// matches = Array.from(matches).map(m => [m[0], m[1]]);
+		// console.log(matches);
 		for (const [textToReplace, filePath] in matches) {
 			console.log(fs)
 			const text = await fs.readFile(filePath, "utf-8");
