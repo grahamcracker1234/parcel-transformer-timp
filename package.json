@@ -1,6 +1,6 @@
 {
   "name": "parcel-transformer-timp",
-  "version": "0.0.1-13",
+  "version": "0.0.1-14",
   "description": "Parcel Transformer for TIMP",
   "main": "HTMLTransformer.js",
   "author": "Graham Preston",
